@@ -1,0 +1,10 @@
+configuration {
+ modi: "window,drun,combi";
+ font: "monospace 12";
+ combi-modi: "drun,run";
+ show-icons: true;
+ sidebar-mode: true;
+ terminal: "alacritty";
+ drun-match-fields: "name,generic,exec,categories";
+}
+@theme "sidebar"

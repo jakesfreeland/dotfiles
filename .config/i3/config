@@ -1,0 +1,161 @@
+# i3 config file
+
+#################################
+#       Setup
+#################################
+# i3 font
+font pango:monospace 8
+
+#################################
+#       Media Controls
+#################################
+# Use pactl to adjust volume in PulseAudio.
+bindsym XF86AudioRaiseVolume exec /home/jake/.scripts/audio/dunst/volume.sh up
+bindsym XF86AudioLowerVolume exec /home/jake/.scripts/audio/dunst/volume.sh down
+bindsym XF86AudioMute exec /home/jake/.scripts/audio/dunst/volume.sh mute
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+#################################
+#       i3 Management
+#################################
+# i3 keybinds
+bindsym $mod+shift+i evec "nvim /home/jake/.config/i3/config"
+bindsym $mod+Shift+r reload
+bindsym $mod+Shift+t restart
+bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# i3 bar
+bar {
+        position top
+	status_command i3status
+}
+
+#################################
+#       App Shortcuts
+#################################
+bindsym $mod+a exec rofi -show drun
+bindsym $mod+Return exec kitty
+bindsym $mod+e exec thunar
+bindsym $mod+w exec google-chrome
+bindsym $mod+d exec flatpak run com.discordapp.Discord
+bindsym $mod+s exec steam
+bindsym $mod+l exec lutris
+bindsym $mod+m exec flatpak run com.spotify.Client
+bindsym $mod+p exec cat /home/jake/docs/Enpass/pass | xclip -selection clipboard
+bindsym $mod+v exec cat /home/jake/docs/Enpass/pass | xclip -selection clipboard & /opt/enpass/Enpass
+bindsym --release Print exec maim -s screenshot
+
+#################################
+#       Windows
+#################################
+# mod key: Alt key = Mod1 / Windows key = Mod4
+set $mod Mod4
+set $alt Mod1
+
+# borders
+default_border none
+default_floating_border none
+
+# window management
+bindsym $mod+q kill
+floating_modifier $mod
+bindsym $mod+space floating toggle
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+space focus mode_toggle # change focus between tiling / floating windows
+#bindsym $mod+Shift+p focus parent # focus the parent container
+#bindsym $mod+Shift+c focus child # focus the child container
+
+# split windows
+bindsym $mod+Shift+h split h
+bindsym $mod+Shift+v split v
+
+# moving windows
+bindsym $mod+Up move up
+bindsym $mod+Down move down
+bindsym $mod+Left move left
+bindsym $mod+Right move right
+bindsym $mod+Shift+Up focus up
+bindsym $mod+Shift+Down focus down
+bindsym $mod+Shift+Left focus left
+bindsym $mod+Shift+Right focus right
+
+# container layout
+#bindsym $mod+Shift+s layout stacking
+#bindsym $mod+Shift+t layout tabbed
+#bindsym $mod+Shift+l layout toggle split
+
+# gaps
+#smart_borders on
+#gaps inner 16
+#gaps outer 3
+
+# resize mode
+bindsym $mod+r mode "resize"
+mode "resize" {
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# floating windows
+for_window [class="Enpass"] floating enable;
+for_window [class="thunar"] floating enable;
+
+#################################
+#       Work Spaces
+#################################
+# set workspace numbers
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+
+# workspace assigning
+#for_window [class="konsole"] move to workspace $ws1 focus
+#for_window [class="dolphin"] move to workspace $ws1 focus
+#for_window [class="Notepadqq"] move to workspace $ws1 focus
+#for_window [class="Chromium"] move to workspace $ws2 focus
+for_window [class="discord"] move to workspace $ws3 focus
+for_window [class="Steam"] move to workspace $ws4 focus
+for_window [class="Lutris"] move to workspace $ws4 focus
+for_window [class="minecraft-launcher"] move to workspace $ws4 focus
+for_window [class="Spotify"] move to workspace $ws5 focus
+for_window [title="GNU Image Manipulation Program"] move to workspace $ws6 focus
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+
+#################################
+#       Startup
+#################################
+# startup script
+exec_always /home/jake/.xinitrc --no-startup-id
