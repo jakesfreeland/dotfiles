@@ -2,13 +2,13 @@
 /*
 
 # root exceptions
+!/.config/
 !/.gitignore
 !/.scripts
 !/.xinitrc
 !/.zshenv
 
 # .config
-!/.config/
 /.config/*
 !/.config/alacritty/
 !/.config/dunst/

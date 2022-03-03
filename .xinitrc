@@ -1,13 +1,13 @@
 #!/bin/sh
 
 # under/overclocking
-sh $HOME/.scripts/mining/ethereum-oc.sh &
+# sh $HOME/.scripts/mining/ethereum-oc.sh &
 
 # restore wallpaper
 feh --bg-scale --no-fehbg $HOME/Media/Pictures/Wallpapers/gruvbox-fedora-2560x1440.jpg &
 
 # custom key mapping
-xmodmap $HOME/.config/keymap &
+xmodmap $XDG_CONFIG_HOME/keymap &
 
 # custom key rate
 xset r rate 400 30 &
@@ -18,11 +18,15 @@ lxpolkit &
 # unlock keyring
 gnome-keyring-daemon --start &
 
+# notifications
+dunst &
+
 # system tray applets
-sh $HOME/.scripts/system/tray-applets.sh &
+pasystray &
+nm-applet &
 
 # dwm statusbar
 sh $HOME/.scripts/dwm/statusbar.sh &
 
-# start dwm
-exec dbus-launch --exit-with-session dwm
+# launch dwm
+exec dwm

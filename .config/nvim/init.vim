@@ -10,6 +10,7 @@ filetype indent on          " language specific indentation
 set autoindent              " automatic indentation
 set tabstop=2               " tabs equal two spaces
 set shiftwidth=2            " indents match tab width
+set expandtab               " convert tabs to spaces
 
 " cursor
 let &t_SI.="\e[5 q"         " line cursor in insert mode
