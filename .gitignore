@@ -22,7 +22,11 @@
 !/.config/nvim/
 !/.config/picom/
 !/.config/rofi/
+!/.config/spotify-tui/
+/.config/spotify-tui/*
+!/.config/spotify-tui/config.yml
 !/.config/suckless/
 !/.config/tmux/
 !/.config/user-dirs.dirs
+!/.config/zathura/
 !/.config/zsh/

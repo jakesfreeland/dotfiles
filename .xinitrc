@@ -29,4 +29,4 @@ nm-applet &
 sh $HOME/.scripts/dwm/statusbar.sh &
 
 # launch dwm
-exec dwm
+exec dbus-launch --sh-syntax --exit-with-session dwm

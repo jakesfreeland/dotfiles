@@ -9,6 +9,7 @@ window:
     y: 32
   decorations: none
   dynamic_title: true
+  opacity: 1.0
 
 scrolling:
   multiplier: 3
@@ -54,8 +55,6 @@ colors:
   selection:
     text: '#ffffff'
     background: '#725e97'
-
-background_opacity: 1.0
 
 selection:
   save_to_clipboard: true

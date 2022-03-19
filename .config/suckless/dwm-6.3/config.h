@@ -118,7 +118,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER --profile-directory='Default'") },
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("$BROWSER --profile-directory='Profile 1'") },
 	{ MODKEY,                       XK_d,      spawn,          SHCMD("flatpak run com.discordapp.Discord") },
-	{ MODKEY,                       XK_m,      spawn,          SHCMD("$TERMINAL -e spt") },
+	{ MODKEY,                       XK_m,      spawn,          SHCMD("$TERMINAL -e $HOME/.scripts/audio/spt.sh") },
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("flatpak run com.bitwarden.desktop") },
 
 	{ 0, XK_Print,                             spawn,          SHCMD("$HOME/.scripts/display/screenshot.sh") },

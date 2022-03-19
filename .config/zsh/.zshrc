@@ -7,7 +7,7 @@ alias cd="z"
 alias trash="gio trash"
 alias vim="nvim"
 alias c="clear"
-alias update-grub="doas grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg"
+alias spt="$HOME/.scripts/audio/spt.sh"
 alias ethmine="$HOME/.scripts/mining/ethermine.sh"
 alias gputemp="$HOME/.scripts/mining/gputemp.sh"
 
