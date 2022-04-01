@@ -5,12 +5,21 @@ set title                   " responsive terminal title
 set number                  " line numbers
 set showtabline=2           " persistent tabline
 set clipboard+=unnamedplus  " share system clipboard
+runtime ftplugin/man.vim    " :Man pages in vim
+
+" language specific
+filetype plugin on          " language autocommands
 syntax enable               " syntax highlighting
-filetype indent on          " language specific indentation
-set autoindent              " automatic indentation
+
+" tab formatting
 set tabstop=2               " tabs equal two spaces
 set shiftwidth=2            " indents match tab width
 set expandtab               " convert tabs to spaces
+set autoindent              " automatic indentation
+
+" text formatting
+set wrap                    " make sentences wrap
+set linebreak               " no breaks mid-word
 
 " cursor
 let &t_SI.="\e[5 q"         " line cursor in insert mode
@@ -41,10 +50,6 @@ set undodir=$HOME/.cache/vim/undo       " specify undo dir
 " completion
 filetype plugin on                      " language support
 set omnifunc=syntaxcomplete#Complete    " pattern based completion
-
-" text formatting
-set wrap
-set linebreak
 
 " --- MAPPINGS ---
 let mapleader=' '
