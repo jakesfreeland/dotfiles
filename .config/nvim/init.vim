@@ -4,7 +4,8 @@
 set title                   " responsive terminal title
 set number                  " line numbers
 set showtabline=2           " persistent tabline
-set clipboard+=unnamedplus  " share system clipboard
+set clipboard+=unnamed      " share macOS clipboard
+set clipboard+=unnamedplus  " share BSD/Linux clipboard
 runtime ftplugin/man.vim    " :Man pages in vim
 
 " language specific
