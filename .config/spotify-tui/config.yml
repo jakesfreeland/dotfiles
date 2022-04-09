@@ -15,5 +15,5 @@ theme:
   header: White
 
 behavior:
-  tick_rate_milliseconds: 33
+  tick_rate_milliseconds: 150
   set_window_title: true
