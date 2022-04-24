@@ -5,8 +5,9 @@
 !/.config/
 !/.gitignore
 !/.scripts
-!/.xinitrc
 !/.zshenv
+!/.xinitrc
+!/.waylandrc
 
 # .config
 /.config/*
@@ -26,6 +27,8 @@
 /.config/spotify-tui/*
 !/.config/spotify-tui/config.yml
 !/.config/suckless/
+!/.config/sway/
+!/.config/swayidle/
 !/.config/tmux/
 !/.config/user-dirs.dirs
 !/.config/zathura/

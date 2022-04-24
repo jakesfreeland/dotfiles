@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# restore wallpaper
+#feh --bg-scale --no-fehbg $HOME/Media/Pictures/Wallpapers/gruvbox-fedora-2560x1440.jpg &
+
+# idle control
+swayidle &
+
+# polkit authentication
+lxpolkit &
+
+# notifications
+dunst &
+
+# system tray applets
+pasystray &
+nm-applet &
+

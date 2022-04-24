@@ -2,7 +2,7 @@
 
 # default programs
 export EDITOR="nvim"
-export BROWSER="google-chrome"
+export BROWSER="chromium-freeworld"
 export TERMINAL="alacritty"
 
 # XDG user dirs
@@ -24,8 +24,4 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
-
-# theming
-export QT_QPA_PLATFORMTHEME="qt5ct"
-export GTK_THEME_VARIANT="dark"
 

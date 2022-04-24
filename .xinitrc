@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# under/overclocking
-# sh $HOME/.scripts/mining/ethereum-oc.sh &
-
 # restore wallpaper
 feh --bg-scale --no-fehbg $HOME/Media/Pictures/Wallpapers/gruvbox-fedora-2560x1440.jpg &
 
@@ -14,9 +11,6 @@ xset r rate 400 30 &
 
 # polkit authentication
 lxpolkit &
-
-# unlock keyring
-gnome-keyring-daemon --start &
 
 # notifications
 dunst &
