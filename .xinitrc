@@ -1,23 +1,23 @@
 #!/bin/sh
 
 # restore wallpaper
-feh --bg-scale --no-fehbg $HOME/Media/Pictures/Wallpapers/gruvbox-fedora-2560x1440.jpg &
+#feh --bg-scale --no-fehbg $HOME/Media/Pictures/Wallpapers/gruvbox-fedora-2560x1440.jpg &
 
 # custom key mapping
-xmodmap $XDG_CONFIG_HOME/keymap &
+#xmodmap $XDG_CONFIG_HOME/keymap &
 
 # custom key rate
 xset r rate 400 30 &
 
 # polkit authentication
-lxpolkit &
+#lxpolkit &
 
 # notifications
 dunst &
 
 # system tray applets
-pasystray &
-nm-applet &
+#pasystray &
+#nm-applet &
 
 # dwm statusbar
 sh $HOME/.scripts/dwm/statusbar.sh &
