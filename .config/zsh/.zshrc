@@ -54,4 +54,4 @@ zle -N zle-keymap-select
 eval "$(zoxide init zsh)"
 
 # plugins
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
