@@ -1,15 +1,20 @@
+# os specific
+os=$(uname)
+if [ "$os" = "FreeBSD" ]; then
+  prefix="/usr/local"
+  alias up="doas pkg update && doas pkg upgrade -y"
+elif [ "$os" = "Linux" ]; then
+  prefix="/usr"
+  alias up="doas dnf update -y && flatpak update -y"
+fi
+
 # aliases
-alias up="doas dnf update -y && flatpak update -y"
-#alias up="doas pkg update"
-alias cd="z"
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias vim="nvim"
 alias merge="rsync -aP"
 alias trash="gio trash"
 alias spt="$HOME/.scripts/audio/spt.sh"
-alias ethmine="$HOME/.scripts/mining/ethermine.sh"
-alias gputemp="$HOME/.scripts/mining/gputemp.sh"
 
 # keybinds
 bindkey "^[[1;5C" forward-word
@@ -51,7 +56,10 @@ zle-keymap-select() {
 zle -N zle-keymap-select
 
 # zoxide (a smarter cd)
-eval "$(zoxide init zsh)"
+if command -v zoxide > /dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+  alias cd="z"
+fi
 
 # plugins
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ${prefix}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

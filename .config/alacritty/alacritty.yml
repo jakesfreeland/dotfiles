@@ -16,18 +16,18 @@ scrolling:
   history: 2000
 
 font:
-  normal:
-    family: Source Code Pro
-    style: Semibold
-  bold:
-    family: Source Code Pro
-    style: Bold
-  italic:
-    family: Source Code Pro
-    style: Italic
-  bold_italic:
-    family: Source Code Pro
-    style: Bold Italic
+#  normal:
+#    family: Source Code Pro
+#    style: Semibold
+#  bold:
+#    family: Source Code Pro
+#    style: Bold
+#  italic:
+#    family: Source Code Pro
+#    style: Italic
+#  bold_italic:
+#    family: Source Code Pro
+#    style: Bold Italic
   size: 16
 
 colors:

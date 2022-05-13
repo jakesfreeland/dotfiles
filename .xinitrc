@@ -1,10 +1,7 @@
 #!/bin/sh
 
 # restore wallpaper
-feh --bg-scale --no-fehbg $HOME/Media/Pictures/Wallpapers/gruvbox-fedora-2560x1440.jpg &
-
-# custom key mapping
-xmodmap $XDG_CONFIG_HOME/keymap &
+feh --bg-scale --no-fehbg $HOME/Media/Pictures/Wallpapers/freebsd-ascii-3840x2160.png &
 
 # custom key rate
 xset r rate 400 30 &
