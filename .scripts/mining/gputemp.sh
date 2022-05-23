@@ -1,3 +1,5 @@
+#!/bin/sh
+
 while getopts ":lh" opt; do
 	case $opt in
 		l)

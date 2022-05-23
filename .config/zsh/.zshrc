@@ -8,12 +8,17 @@ elif [ "$os" = "Linux" ]; then
   alias up="doas dnf update -y && flatpak update -y"
 fi
 
-# aliases
+# command aliases
 alias cp="cp -iv"
 alias mv="mv -iv"
-alias vim="nvim"
 alias merge="rsync -aP"
 alias trash="gio trash"
+
+if command -v nvim > /dev/null 2>&1; then
+  alias vim="nvim"
+fi
+
+# script aliases
 alias spt="$HOME/.scripts/audio/spt.sh"
 
 # keybinds
