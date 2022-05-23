@@ -6,6 +6,9 @@ if [ "$os" = "FreeBSD" ]; then
 elif [ "$os" = "Linux" ]; then
   prefix="/usr"
   alias up="doas dnf update -y && flatpak update -y"
+elif [ "$os" = "Darwin" ]; then
+  prefix="/opt/pkg"
+  alias up="doas pkgin update -y && doas pkgin upgrade -y"
 fi
 
 # command aliases
