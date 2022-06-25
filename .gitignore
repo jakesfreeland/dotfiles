@@ -16,6 +16,7 @@
 !/.config/emacs/
 /.config/emacs/*
 !/.config/emacs/init.el
+!/.config/freebsd/
 !/.config/git/
 !/.config/i3/
 !/.config/i3status/
