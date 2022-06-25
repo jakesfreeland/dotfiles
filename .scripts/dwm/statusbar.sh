@@ -9,7 +9,7 @@ if [ "$os" = "FreeBSD" ]; then
   done
 elif [ "$os" = "Linux" ]; then
   while true; do
-    xsetroot -name "$(date +" %A, %b %d %H:%M ")"
+    xsetroot -name "$(date +" %A, %b %d %H:%M:%S ")"
     sleep 1
   done
 fi

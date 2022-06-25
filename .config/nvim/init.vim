@@ -15,11 +15,10 @@ syntax enable               " syntax highlighting
 " tab formatting
 set tabstop=2               " tabs equal two spaces
 set shiftwidth=2            " indents match tab width
-set expandtab               " convert tabs to spaces
 set autoindent              " automatic indentation
 
 " text formatting
-set wrap                    " make sentences wrap
+set nowrap                  " no line wrapping
 set linebreak               " no breaks mid-word
 
 " cursor
@@ -58,8 +57,8 @@ map ! :!
 
 " tabs
 map <Leader>t :tabedit<Space>
-map <Tab> :tabn<CR>
-map <S-Tab> :tabp<CR>
+map <Leader><Tab> :tabn<CR>
+map <Leader><S-Tab> :tabp<CR>
 map <Leader>T <C-w>T
 
 " search and replace
@@ -67,7 +66,7 @@ map <Leader>s :s//g<left><left>
 map <Leader>S :%s//g<left><left>
 
 " save files that require root
-cmap w!! w !sudo tee % > /dev/null <CR>
+cmap w!! w !doas tee % > /dev/null <CR>
 
 " --- AUTO COMMANDS ---
 " disable automatic comment insertion

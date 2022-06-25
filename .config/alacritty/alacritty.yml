@@ -5,8 +5,8 @@ env:
 
 window:
   padding:
-    x: 40
-    y: 32
+    x: 16
+    y: 16
   decorations: none
   dynamic_title: true
   opacity: 1.0

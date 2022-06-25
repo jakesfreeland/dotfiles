@@ -2,10 +2,10 @@
 
 # default programs
 export EDITOR="nvim"
-export BROWSER="chromium-freeworld"
+export BROWSER="chromium-browser"
 export TERMINAL="alacritty"
 
-# display server
+# display server: "x" or "wayland"
 export DISPSERV="x"
 
 # XDG user dirs
