@@ -13,8 +13,8 @@ filetype plugin on          " language autocommands
 syntax enable               " syntax highlighting
 
 " tab formatting
-set tabstop=4               " tabs equal four spaces
-set shiftwidth=4            " indents match tab width
+set tabstop=8               " tabs equal eight spaces
+set shiftwidth=8            " indents match tab stop
 set autoindent              " automatic indentation
 
 " text formatting
