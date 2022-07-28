@@ -2,7 +2,7 @@
 
 # default programs
 export EDITOR="nvim"
-export BROWSER="chromium-browser"
+export BROWSER="chromium-freeworld"
 export TERMINAL="alacritty"
 
 # display server: "x" or "wayland"

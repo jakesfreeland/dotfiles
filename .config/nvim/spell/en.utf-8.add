@@ -11,3 +11,5 @@ js
 EJS
 ejs
 cdaemon
+procfs
+debugfs
