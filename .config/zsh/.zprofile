@@ -6,11 +6,11 @@ elif [ "$os" = "Linux" ]; then
   ostty="/dev/tty1"
 fi
 
-# start declared windowing system
+# start windowing system
 if [ -z $DISPLAY ] && [ "$(tty)" = "$ostty" ]; then
-  if [ $DISPSERV = "wayland" ]; then
+  if [ $XDG_SESSION_TYPE = "wayland" ]; then
     exec dwl -s "$HOME/.waylandrc"
-  elif [ $DISPSERV = "x" ]; then
+  elif [ $XDG_SESSION_TYPE = "x11" ]; then
     exec startx
   fi
 fi

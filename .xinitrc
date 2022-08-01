@@ -7,14 +7,14 @@ feh --bg-scale --no-fehbg $HOME/Media/Pictures/Wallpapers/freebsd-ascii-3840x216
 xset r rate 400 30 &
 
 # polkit authentication
-lxpolkit &
+#lxpolkit &
 
 # notifications
 dunst &
 
 # system tray applets
-pasystray &
-nm-applet &
+#pasystray &
+#nm-applet &
 
 # dwm statusbar
 sh $HOME/.scripts/dwm/statusbar.sh &

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if pgrep spotifyd > /dev/null; then
+if pgrep -x "spotifyd" > /dev/null; then
   spt
 else
   spotifyd && spt
