@@ -18,6 +18,7 @@
 !/.config/emacs/init.el
 !/.config/freebsd/
 !/.config/git/
+!/.config/gtk-3.0/
 !/.config/i3/
 !/.config/i3status/
 !/.config/kitty/

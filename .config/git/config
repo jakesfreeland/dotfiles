@@ -2,4 +2,4 @@
 	name = Jake Freeland
 	email = jakesfreeland@gmail.com
 [credential "https://github.com"]
-	helper = !/usr/local/bin/gh auth git-credential
+	helper = !gh auth git-credential
