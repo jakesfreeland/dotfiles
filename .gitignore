@@ -24,6 +24,9 @@
 !/.config/kitty/
 !/.config/nvim/
 !/.config/picom/
+!/.config/qutebrowser/
+/.config/qutebrowser/*
+!/.config/qutebrowser/autoconfig.yml
 !/.config/rofi/
 !/.config/spotify-player/
 !/.config/spotify-tui/

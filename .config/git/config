@@ -8,3 +8,8 @@
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
+[sendemail]
+	smtpEncryption = tls
+	smtpServer = smtp.gmail.com
+	smtpUser = jake@technologyfriends.net
+	smtpServerPort = 587
