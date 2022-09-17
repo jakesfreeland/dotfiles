@@ -25,6 +25,7 @@
 !/.config/nvim/
 !/.config/picom/
 !/.config/rofi/
+!/.config/spotify-player/
 !/.config/spotify-tui/
 /.config/spotify-tui/*
 !/.config/spotify-tui/config.yml

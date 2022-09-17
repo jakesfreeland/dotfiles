@@ -1,0 +1,12 @@
+client_id = "ecc118130daa4cb6ab98d2e4da101eaa"
+theme = "dracula"
+app_refresh_duration_in_ms = 32
+playback_refresh_duration_in_ms = 0
+default_device = "Terminal Player"
+
+[device]
+name = "Terminal Player"
+device_type = "computer"
+volume = 100
+bitrate = 320
+audio_cache = true
