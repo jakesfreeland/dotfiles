@@ -30,7 +30,7 @@ set ttimeoutlen=5           " reduced key delay
 " status bar
 set laststatus=1            " status bar on split
 set ruler                   " enable ruler
-set ruf=%4(%p%%%)           " custom ruler format
+set ruf=%=C%c\ %p%%          " custom ruler format
 
 " better search
 set ignorecase              " default case insensitivity
