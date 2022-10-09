@@ -68,3 +68,6 @@ cursor:
     blinking: Off
   blink_interval: 750
 
+mouse:
+  hide_when_typing: true
+

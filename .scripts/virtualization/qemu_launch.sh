@@ -92,6 +92,8 @@ qemu-system-x86_64 \
   -device virtserialport,chardev=spicechannel0,name=com.redhat.spice.0 \
   -chardev spicevmc,id=spicechannel0,name=vdagent \
   -audiodev pa,id=snd0 \
+  -net nic \
+  -net user,hostfwd=tcp::2222-:22 \
   &
 
 exit 0
