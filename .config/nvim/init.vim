@@ -56,8 +56,11 @@ set omnifunc=syntaxcomplete#Complete    " pattern based completion
 let mapleader=' '
 map ! :!
 
+" multiplexing
+map <Leader>t :tab term<CR>
+
 " tabs
-map <Leader>t :tabedit<Space>
+map <Leader>n :tabedit<Space>
 map <Leader><Tab> :tabn<CR>
 map <Leader><S-Tab> :tabp<CR>
 map <Leader>T <C-w>T
@@ -65,9 +68,6 @@ map <Leader>T <C-w>T
 " search and replace
 map <Leader>s :s//g<left><left>
 map <Leader>S :%s//g<left><left>
-
-" save files that require root
-cmap w!! w !doas tee % > /dev/null <CR>
 
 " --- AUTO COMMANDS ---
 " disable automatic comment insertion

@@ -12,6 +12,7 @@
 # .config
 /.config/*
 !/.config/alacritty/
+!/.config/AutoRaise/
 !/.config/dunst/
 !/.config/emacs/
 /.config/emacs/*
