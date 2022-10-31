@@ -67,8 +67,8 @@ map <Leader><S-Tab> :tabp<CR>
 map <Leader>T <C-w>T
 
 " search and replace
-map <Leader>s :s//g<left><left>
-map <Leader>S :%s//g<left><left>
+map <Leader>s :s//g<Left><Left>
+map <Leader>S :%s//g<Left><Left>
 
 " --- AUTO COMMANDS ---
 " disable automatic comment insertion
