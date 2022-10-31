@@ -58,6 +58,7 @@ map ! :!
 
 " multiplexing
 map <Leader>t :tab term<CR>
+tmap <Leader><Esc> <C-w>N
 
 " tabs
 map <Leader>n :tabedit<Space>
