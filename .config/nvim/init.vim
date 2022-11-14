@@ -90,4 +90,3 @@ hi CursorLine cterm=none ctermfg=none ctermbg=none
 hi CursorLineNr cterm=none ctermfg=225 ctermbg=none
 hi Pmenu cterm=none ctermfg=182 ctermbg=60
 hi PmenuSel cterm=bold ctermfg=225 ctermbg=104
-

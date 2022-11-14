@@ -1,24 +1,38 @@
-;; --- APPEARANCE ---
-(setq inhibit-startup-message 1)
-(menu-bar-mode 0)
-(tool-bar-mode 0)
-(toggle-scroll-bar 0)
-(global-display-line-numbers-mode 1)
+;; emacs initialization file
+
+;; appearance
+(set-default 'truncate-lines t)
 (set-face-attribute 'default nil :font "Source Code Pro Semibold" :height 160)
-(setq-default tab-width 2)
 
-;; --- FUNCTIONALITY ---
-(ido-mode 1)
-(toggle-truncate-lines 1)
+;; options
+(setq inhibit-startup-message t)
+(setq completion-ignore-case t)
+(setq read-buffer-completion-ignore-case t)
 
-;; --- BACKUP ---
+;; backup and undo
 (setq
- backup-by-copying 1
+ backup-by-copying t
  backup-directory-alist '(("." . "~/.cache/emacs/backup/"))
- delete-old-versions 1
+ undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo"))
+ delete-old-versions t
  kept-new-versions 4
  kept-old-versions 2
- version-control 1)
+ version-control t)
+
+;; emacs modes
+(global-display-line-numbers-mode 1)
+(scroll-bar-mode 0)
+(size-indication-mode 0)
+(column-number-mode 1)
+(electric-pair-mode 1)
+(global-auto-revert-mode 1)
+(recentf-mode 1)
+(savehist-mode 1)
+(show-paren-mode 1)
+
+;; plugin modes
+(vertico-mode 1)
+(which-key-mode 1)
 
 ;; --- PACKAGING ---
 (require 'package)
@@ -44,17 +58,6 @@
 
 ;; dracula-theme
 (load-theme 'dracula 1)
-
-;; which-key
-(which-key-mode 1)
-
-;; evil
-(require 'evil)
-(evil-mode 1)
-
-;; smartparens
-(require 'smartparens-config)
-(smartparens-global-mode 1)
 
 ;; lsp-mode and lsp-ui
 (require 'lsp-mode)
