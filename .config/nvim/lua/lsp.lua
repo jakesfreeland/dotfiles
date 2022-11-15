@@ -8,7 +8,8 @@ function lsp_lang_attach(lang)
 			else vim.lsp.buf_attach_client(0, vim.lsp.start_client({
 				name = lang.name,
 				cmd = lang.cmd,
-				root = vim.fn.getcwd()
+				root_dir = vim.fs.dirname(
+				    vim.fs.find(lang.root_pattern, { upward = true })[1])
 			}))
 			end
 		end
@@ -25,7 +26,8 @@ end
 lsp_lang_attach({
 	name = "rust",
 	cmd = { "rust-analyzer" },
-	filetypes = { "rust" }
+	filetypes = { "rust" },
+	root_pattern = { "Cargo.toml", "rust-project.json" }
 })
 
 -- keybinds
