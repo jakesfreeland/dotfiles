@@ -57,14 +57,14 @@ let mapleader=' '
 map ! :!
 
 " multiplexing
-map <Leader>t :tab term<CR>
+map <Leader><Return> :tab term<CR>
 tmap <Leader><Esc> <C-w>N
 
 " tabs
-map <Leader>n :tabedit<Space>
+map <Leader>t :tabedit<Space>
+map <Leader>T <C-w>T
 map <Leader><Tab> :tabn<CR>
 map <Leader><S-Tab> :tabp<CR>
-map <Leader>T <C-w>T
 
 " search and replace
 map <Leader>s :s//g<Left><Left>
