@@ -57,8 +57,8 @@ let mapleader=' '
 map ! :!
 
 " multiplexing
-map <Leader><Return> :tab term<CR>
-tmap <Leader><Esc> <C-w>N
+map <Leader><Return> :tabnew +term<CR>
+tmap <Leader><Esc> <C-\><C-n>
 
 " tabs
 map <Leader>t :tabedit<Space>
@@ -76,6 +76,9 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " set cursor to block on VimEnter
 autocmd VimEnter * silent normal! :startinsert :stopinsert
+
+" enter insert mode on TermOpen
+autocmd TermOpen * startinsert
 
 " --- COLORS ---
 hi TabLine cterm=none ctermfg=182 ctermbg=104
