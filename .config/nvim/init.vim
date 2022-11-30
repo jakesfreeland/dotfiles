@@ -21,6 +21,10 @@ set autoindent              " automatic indentation
 set nowrap                  " no line wrapping
 set linebreak               " no breaks mid-word
 
+" multiplexing
+set splitright              " vertical splits open on right
+set splitbelow              " horizontal splits open on bottom
+
 " cursor
 let &t_SI.="\e[5 q"         " line cursor in insert mode
 let &t_EI.="\e[2 q"         " block cursor in other modes
