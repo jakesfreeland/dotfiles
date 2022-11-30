@@ -1,4 +1,4 @@
-" vim config for efficient text editing
+" vim configuration for efficient text editing
 
 " --- OPTIONS ---
 set title                   " responsive terminal title
@@ -81,9 +81,6 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " set cursor to block on VimEnter
 autocmd VimEnter * silent normal! :startinsert :stopinsert
 
-" enter insert mode on TermOpen
-autocmd TermOpen * startinsert
-
 " --- COLORS ---
 hi TabLine cterm=none ctermfg=182 ctermbg=104
 hi TabLineSel cterm=bold ctermfg=225 ctermbg=104
@@ -99,6 +96,6 @@ hi Pmenu cterm=none ctermfg=182 ctermbg=60
 hi PmenuSel cterm=bold ctermfg=225 ctermbg=104
 
 " --- LUA ---
-if has('nvim')
+if has("nvim")
 lua require("lsp")
 endif
