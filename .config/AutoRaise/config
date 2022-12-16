@@ -1,8 +1,0 @@
-# macOS focus-follows-mouse utility
-
-pollMillis=100
-delay=1
-focusDelay=0
-altTaskSwitcher=false
-ignoreSpaceChanged=false
-mouseDelta=0.1
