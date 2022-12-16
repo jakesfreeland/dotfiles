@@ -12,7 +12,6 @@
 # .config
 /.config/*
 !/.config/alacritty/
-!/.config/AutoRaise/
 !/.config/dunst/
 !/.config/emacs/
 /.config/emacs/*
@@ -23,16 +22,11 @@
 !/.config/i3/
 !/.config/i3status/
 !/.config/kitty/
+!/.config/lf/
 !/.config/nvim/
 !/.config/picom/
-!/.config/qutebrowser/
-/.config/qutebrowser/*
-!/.config/qutebrowser/autoconfig.yml
 !/.config/rofi/
 !/.config/spotify-player/
-!/.config/spotify-tui/
-/.config/spotify-tui/*
-!/.config/spotify-tui/config.yml
 !/.config/suckless/
 !/.config/sway/
 !/.config/swayidle/
