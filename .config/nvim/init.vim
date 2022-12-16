@@ -1,4 +1,4 @@
-" vim configuration for efficient text editing
+" n/vim configuration for efficient text editing
 
 " --- OPTIONS ---
 set title                   " responsive terminal title
@@ -46,15 +46,16 @@ set nohlsearch              " no persistent search highlight
 set wildmenu                " file completion menu
 set wildignorecase          " case-insensitive pathname completion
 
-" tmp files
-set swapfile                            " enable swap files
-set dir=$HOME/.cache/vim/swap           " specify swap dir
-set undofile                            " enable undo files
-set undodir=$HOME/.cache/vim/undo       " specify undo dir
-
 " completion
 filetype plugin on                      " language support
 set omnifunc=syntaxcomplete#Complete    " pattern based completion
+
+" tmp files
+set swapfile
+set dir=$XDG_STATE_HOME/vim/swap
+set undofile
+set undodir=$XDG_CACHE_HOME/vim/undo
+set spellfile=$XDG_DATA_HOME/vim/spell/en.utf-8.add
 
 " --- MAPPINGS ---
 let mapleader=' '
