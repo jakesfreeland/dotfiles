@@ -44,29 +44,45 @@ Example:
 while getopts ":f:n:i:a:M:b:c:s:m:g:o:r:S:h" opt; do
 	case $opt in
 		f)
-			img=$OPTARG ;;
+			img=$OPTARG
+			;;
 		n)
-			img_size=$OPTARG ;;
+			img_size=$OPTARG
+			;;
 		i)
-			iso_flag="-cdrom $OPTARG" ;;
+			iso_flag="-cdrom $OPTARG"
+			;;
 		a)
-			accel_flag="-accel $OPTARG" ;;
+			accel_flag="-accel $OPTARG"
+			;;
 		M)
-			machine_flag="-M $OPTARG" ;;
+			machine_flag="-M $OPTARG"
+			;;
 		b)
-			bios_flag="-bios $OPTARG" ;;
+			bios_flag="-bios $OPTARG"
+			;;
 		c)
-			cpu_flag="-cpu $OPTARG" ;;
+			cpu_flag="-cpu $OPTARG"
+			;;
 		s)
-			smp_flag="-smp $OPTARG" ;;
+			smp_flag="-smp $OPTARG"
+			;;
 		m)
-			mem_flag="-m $OPTARG" ;;
+			mem_flag="-m $OPTARG"
+			;;
 		g)
-			graphics_flag="-vga $OPTARG" ;;
+			if [ "$OPTARG" = "nographic" ]; then
+				graphics_flag="-nographic"
+			else
+				graphics_flag="-vga $OPTARG"
+			fi
+			;;
 		o)
-			sound_flag="-audiodev $OPTARG,id=snd0" ;;
+			sound_flag="-audiodev $OPTARG,id=snd0"
+			;;
 		r)
-			ssh_flag="-nic user,hostfwd=tcp::$OPTARG-:22" ;;
+			ssh_flag="-nic user,hostfwd=tcp::$OPTARG-:22"
+			;;
 		S)
 			spice_flag=\
 			"-spice port=$OPTARG,disable-ticketing=on \
@@ -106,5 +122,4 @@ $qemu_cmd \
 	$sound_flag \
 	$ssh_flag \
 	$spice_flag \
-	-drive file=$img,if=virtio \
-	&
+	-drive file=$img,if=virtio
