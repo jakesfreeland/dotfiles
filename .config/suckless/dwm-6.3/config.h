@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
+#include <X11/XF86keysym.h>
+
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -84,9 +86,8 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selbordercolor, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
-#include <X11/XF86keysym.h>
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
@@ -112,14 +113,11 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 
-	{ MODKEY,                       XK_Return, spawn,          SHCMD("$TERMINAL") },
-	{ MODKEY,                       XK_s,      spawn,          SHCMD("rofi -show drun") },
-	{ MODKEY,                       XK_v,      spawn,          SHCMD("pavucontrol") },
+	{ MODKEY,                       XK_s,      spawn,          {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_Return, spawn,          SHCMD("tabbed -c $TERMINAL --embed") },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER --profile-directory='Default'") },
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("$BROWSER --profile-directory='Profile 1'") },
-	{ MODKEY,                       XK_d,      spawn,          SHCMD("flatpak run com.discordapp.Discord") },
-	{ MODKEY,                       XK_m,      spawn,          SHCMD("$TERMINAL -e $HOME/.scripts/audio/spt.sh") },
-	{ MODKEY,                       XK_p,      spawn,          SHCMD("flatpak run com.bitwarden.desktop") },
 
 	{ 0, XK_Print,                             spawn,          SHCMD("$HOME/.scripts/display/screenshot.sh") },
 	{ 0, XF86XK_AudioPlay,                     spawn,          SHCMD("playerctl play-pause") },
