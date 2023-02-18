@@ -1,6 +1,6 @@
 [user]
 	name = Jake Freeland
-	email = jfree@freebsd.org
+	email = jfree@FreeBSD.org
 [credential "https://github.com"]
 	helper = !gh auth git-credential
 [pull]
