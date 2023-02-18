@@ -4,7 +4,9 @@ script_name="launch.sh"
 cpu_flag="-cpu host"
 smp_flag="-smp 4"
 mem_flag="-m 4096M"
+graphics_flag="-vga none"
 ssh_flag="-nic user,hostfwd=tcp::2222-:22"
+and_flag="&"
 
 show_help() {
 cat <<EOF
@@ -78,6 +80,7 @@ while getopts ":f:n:i:s:m:v:r:R:o:h" opt; do
 		v)
 			if [ "$OPTARG" = "nographic" ]; then
 				graphics_flag="-nographic"
+				and_flag=""
 			else
 				graphics_flag="-vga $OPTARG"
 			fi
@@ -115,7 +118,8 @@ $qemu_cmd \\
 	$machine_flag $bios_flag \\
 	$smp_flag $mem_flag \\
 	$graphics_flag $sound_flag \\
-	$ssh_flag $spice_flag
+	$ssh_flag $spice_flag \\
+	$and_flag
 EOF
 
 chmod +x "$script_name"
