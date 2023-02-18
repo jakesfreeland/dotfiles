@@ -7,5 +7,5 @@ case $(file --mime-type -Lb "$1") in
 	application/x-7z-compressed) 7z l "$1";;
 	application/pdf) pdftotext "$1" -;;
 	text/*) less "$1";;
-	*) echo "Unsupported file type";;
+	*) echo "Unable to preview. Unsupported file type";;
 esac
