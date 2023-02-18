@@ -108,8 +108,16 @@ while getopts ":f:n:i:s:m:v:r:R:o:h" opt; do
 	esac
 done
 
+[ -e "$script_name" ] && err "File with name: \"$script_name\" already exists"
 [ -z "$img" ] && err "Missing image file. Use -h for help"
-[ -n "$img_size" ] && qemu-img create -f qcow2 "$img" $img_size
+
+if [ -n "$img_size" ]; then
+	if [ -e "$img" ]; then
+		echo "Image file: \"$img\" already exists. Skipping creation"
+	else
+		qemu-img create -f qcow2 "$img" $img_size
+	fi
+fi
 
 cat <<EOF > "$script_name"
 $qemu_cmd \\
