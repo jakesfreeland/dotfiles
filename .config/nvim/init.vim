@@ -61,10 +61,6 @@ set spellfile=$XDG_DATA_HOME/vim/spell/en.utf-8.add
 let mapleader=' '
 map ! :!
 
-" multiplexing
-map <Leader><Return> :tabnew +term<CR>
-tmap <Leader><Esc> <C-\><C-n>
-
 " tabs
 map <Leader>t :tabedit<Space>
 map <Leader>T <C-w>T
