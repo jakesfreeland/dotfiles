@@ -70,7 +70,7 @@ lsp_lang_init({
 		"configure.ac",
 		".git"
 	},
-	auto_attach = false
+	auto_attach = true
 })
 
 -- keybinds
