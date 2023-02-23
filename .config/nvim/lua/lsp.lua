@@ -5,12 +5,12 @@
 ]]--
 
 function lsp_lang_init(lang)
-	vim.api.nvim_create_user_command("Enable" .. lang.name .. "LSP",
+	vim.api.nvim_create_user_command("Attach" .. lang.name .. "LSP",
 	    function() lsp_lang_attach(lang) end, {})
-	vim.api.nvim_create_user_command("Disable" .. lang.name .. "LSP",
+	vim.api.nvim_create_user_command("Detach" .. lang.name .. "LSP",
 	    function() lsp_lang_detach(lang.name) end, {})
-	if lang.auto_attach
-		then vim.api.nvim_create_autocmd("FileType", {
+	if lang.auto_attach then
+		vim.api.nvim_create_autocmd("FileType", {
 			pattern = lang.filetypes,
 			callback = function() lsp_lang_attach(lang) end
 		})
@@ -19,9 +19,10 @@ end
 
 function lsp_lang_attach(lang)
 	client = vim.lsp.get_active_clients({ name = lang.name })[1]
-	if client
-		then vim.lsp.buf_attach_client(0, client.id)
-		else vim.lsp.buf_attach_client(0, vim.lsp.start_client({
+	if client ~= nil then
+		vim.lsp.buf_attach_client(0, client.id)
+	else
+		vim.lsp.buf_attach_client(0, vim.lsp.start_client({
 			name = lang.name,
 			cmd = lang.cmd,
 			root_dir = vim.fs.dirname(
@@ -30,15 +31,22 @@ function lsp_lang_attach(lang)
 	end
 end
 
+
 function lsp_lang_detach(lang_name)
-	vim.lsp.stop_client(vim.lsp.get_active_clients({ name = lang_name }))
+	client = vim.lsp.get_active_clients({ name = lang_name })[1]
+	if client ~= nil then
+		vim.lsp.buf_detach_client(0, client.id)
+		if next(vim.lsp.get_buffers_by_client_id(client.id)) == nil then
+			vim.lsp.stop_client(client.id)
+		end
+	end
 end
 
 function lsp_lang_keys(set_keys)
 	vim.api.nvim_create_autocmd("LspAttach", { callback = set_keys })
 end
 
---- CONFIG ---
+--[[ CONFIGURATION ]]--
 
 -- languages
 lsp_lang_init({
