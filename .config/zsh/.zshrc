@@ -51,8 +51,8 @@ zle-line-init() {
 zle -N zle-line-init
 
 zle-keymap-select() {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = "block" ]]; then
+  if [ "$KEYMAP" = "vicmd" ] ||
+     [ "$1" = "block" ]; then
     echo -ne "\e[2 q"
   else
     echo -ne "\e[5 q"
