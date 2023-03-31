@@ -21,9 +21,6 @@ if command -v nvim > /dev/null 2>&1; then
   alias vim="nvim"
 fi
 
-# script aliases
-alias spt="$HOME/.scripts/audio/spt.sh"
-
 # keybinds
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
