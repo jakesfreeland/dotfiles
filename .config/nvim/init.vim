@@ -3,6 +3,7 @@
 " --- OPTIONS ---
 set title                   " responsive terminal title
 set number                  " line numbers
+set mouse=                  " disable mouse
 set showtabline=2           " persistent tabline
 set clipboard+=unnamed      " share macOS clipboard
 set clipboard+=unnamedplus  " share BSD/Linux clipboard
@@ -64,8 +65,8 @@ map ! :!
 " tabs
 map <Leader>t :tabedit<Space>
 map <Leader>T <C-w>T
-map <Leader><Tab> :tabn<CR>
-map <Leader><S-Tab> :tabp<CR>
+map <Leader><Tab> :tabnext<CR>
+map <Leader><S-Tab> :tabprevious<CR>
 
 " search and replace
 map <Leader>s :s//g<Left><Left>
