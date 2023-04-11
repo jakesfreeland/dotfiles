@@ -18,7 +18,7 @@ alias merge="rsync -aP"
 alias trash="gio trash"
 
 if command -v nvim > /dev/null 2>&1; then
-  alias vim="nvim"
+  alias vi="nvim"
 fi
 
 # keybinds
