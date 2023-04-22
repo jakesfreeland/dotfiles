@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # default programs
-export BROWSER="chromium-freeworld"
+export BROWSER="chromium-browser"
 export EDITOR="vim"
 export TERMINAL="alacritty"
 
