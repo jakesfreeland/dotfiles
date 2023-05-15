@@ -2,7 +2,7 @@
 
 # default programs
 export BROWSER="chromium-browser"
-export EDITOR="vim"
+export EDITOR="nvim"
 export TERMINAL="alacritty"
 
 # Cross Desktop Group (XDG)
