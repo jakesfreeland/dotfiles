@@ -3,8 +3,6 @@
 	email = jfree@FreeBSD.org
 [credential "https://github.com"]
 	helper = !gh auth git-credential
-[pull]
-	rebase = false
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
