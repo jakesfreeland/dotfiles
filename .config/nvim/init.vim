@@ -35,7 +35,7 @@ set ttimeoutlen=5           " reduced key delay
 " status bar
 set laststatus=1            " status bar on split
 set ruler                   " enable ruler
-set ruf=%=C%c\ %p%%         " custom ruler format
+set ruf=%=C%v\ %p%%         " custom ruler format
 set shortmess-=S            " search position
 
 " better search
