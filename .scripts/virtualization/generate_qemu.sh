@@ -1,35 +1,21 @@
 #!/bin/sh
 
-script_name="launch.sh"
-cpu_flag="-cpu host"
-smp_flag="-smp 4"
-mem_flag="-m 4096M"
-graphics_flag="-vga none"
-ssh_flag="-nic user,hostfwd=tcp::2222-:22"
-and_flag="&"
-
 show_help() {
 cat <<EOF
 ${0##*/}: Create a script to launch a QEMU virtual machine
 
 Usage:
-	${0##*/} [-f IMAGE] [options]
+	${0##*/} <ncpu> <mem> [options] <disk image>
 
 Options:
-	-f IMAGE   virtual image file name
-	-n SIZE    creates a new qcow2 image
-	-i CDROM   boot with cdrom/iso attached
-	-s NCPU    symmetric multiprocessor count
-	-m MEM     amount of memory allocated
-	-v DRIVER  video graphics interface
-	-r PORT    SSH server poer
-	-R PORT    SPICE server port
+	-n SIZE    creates a new qcow2 disk image
+	-i CDROM   attach cdrom/iso
+	-v DRIVER  graphics card
+	-d TYPE    type of display
+	-s PORT    SSH server port
+	-S PORT    SPICE server port
 	-o NAME    output script name
 	-h         prints help information
-
-Example:
-	${0##*/} -f alpine.qcow2 -n 32G -i ./alpine-standard-3.15.4-x86_64.iso
-	creates a new 32G alpine.qcow2 image and generates ./launch.sh
 EOF
 }
 
@@ -38,13 +24,16 @@ err() {
 	exit 1
 }
 
+if [ "$#" -lt 3 ]; then
+	show_help
+	exit 1
+fi
+
 OS=$(uname)
 if [ "$OS" = "Linux" ]; then
 	accel_flag="-accel kvm"
-	sound_flag="-audiodev pa,id=snd0"
 elif [ "$OS" = "Darwin" ]; then
 	accel_flag="-accel hvf"
-	sound_flag="-audiodev coreaudio,id=snd0"
 else
 	echo "Proceeding without acceleration, expect slowdowns"
 fi
@@ -57,38 +46,48 @@ elif [ "$MACHINE" = "arm64" ]; then
 	machine_flag="-M virt"
 	bios_flag="-bios edk2-aarch64-code.fd"
 else
-	err "Unsupported hardware platform"
+	err "Unsupported hardware architecture. Exiting."
 fi
 
-while getopts ":f:n:i:s:m:v:r:R:o:h" opt; do
+for img; do true; done
+
+script_name="launch.sh"
+cpu_flag="-cpu host"
+smp_flag="-smp $1"
+mem_flag="-m $2"
+and_flag="&"
+
+OPTIND=3
+while getopts ":n:i:v:d:s:S:o:h" opt; do
 	case $opt in
-		f)
-			img="$OPTARG"
-			;;
 		n)
-			img_size="$OPTARG"
+			if [ -e "$img" ]; then
+				echo "Image file: \"$img\" already exists. Skipping creation"
+			else
+				qemu-img create -f qcow2 "$img" "$OPTARG"
+			fi
 			;;
 		i)
 			iso_flag="-cdrom $OPTARG"
 			;;
-		s)
-			smp_flag="-smp $OPTARG"
-			;;
-		m)
-			mem_flag="-m $OPTARG"
-			;;
 		v)
 			if [ "$OPTARG" = "nographic" ]; then
-				graphics_flag="-nographic"
+				vga_flag="-nographic"
 				and_flag=""
 			else
-				graphics_flag="-vga $OPTARG"
+				vga_flag="-vga $OPTARG"
 			fi
 			;;
-		r)
+		d)
+			display_flag="-display $OPTARG"
+			if [ "$OPTARG" = "curses" ]; then
+				and_flag=""
+			fi
+			;;
+		s)
 			ssh_flag="-nic user,hostfwd=tcp::$OPTARG-:22"
 			;;
-		R)
+		S)
 			spice_flag=\
 			"-spice port=$OPTARG,disable-ticketing=on \
 			 -device virtio-serial-pci \
@@ -97,6 +96,9 @@ while getopts ":f:n:i:s:m:v:r:R:o:h" opt; do
 			;;
 		o)
 			script_name="$OPTARG"
+			if [ -e "$script_name" ]; then
+				err "File with name: \"$script_name\" already exists"
+			fi
 			;;
 		h)
 			show_help
@@ -108,24 +110,13 @@ while getopts ":f:n:i:s:m:v:r:R:o:h" opt; do
 	esac
 done
 
-[ -e "$script_name" ] && err "File with name: \"$script_name\" already exists"
-[ -z "$img" ] && err "Missing image file. Use -h for help"
-
-if [ -n "$img_size" ]; then
-	if [ -e "$img" ]; then
-		echo "Image file: \"$img\" already exists. Skipping creation"
-	else
-		qemu-img create -f qcow2 "$img" $img_size
-	fi
-fi
-
 cat <<EOF > "$script_name"
 $qemu_cmd \\
 	-drive file=$img,if=virtio $iso_flag \\
 	$cpu_flag $accel_flag \\
 	$machine_flag $bios_flag \\
 	$smp_flag $mem_flag \\
-	$graphics_flag $sound_flag \\
+	$vga_flag $display_flag \\
 	$ssh_flag $spice_flag \\
 	$and_flag
 EOF
