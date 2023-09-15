@@ -13,6 +13,10 @@ runtime ftplugin/man.vim    " :Man pages in vim
 filetype plugin on          " language autocommands
 syntax enable               " syntax highlighting
 
+" folds
+set nofoldenable            " do not fold on open
+set foldmethod=indent       " fold based on indent
+
 " tab formatting
 set tabstop=8               " tabs equal eight spaces
 set shiftwidth=8            " indents match tab stop
