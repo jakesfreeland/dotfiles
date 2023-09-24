@@ -39,6 +39,9 @@ autoload -Uz compinit && compinit && _comp_options+=(globdots)
 zstyle ":completion:*" matcher-list "" "m:{a-zA-Z}={A-Za-z}"
 zstyle ":completion:*" menu select
 
+# allow glob operators
+setopt extended_glob
+
 # vi mode
 bindkey -v
 bindkey "^?" backward-delete-char
