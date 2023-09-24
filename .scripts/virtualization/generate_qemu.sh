@@ -29,7 +29,7 @@ if [ "$#" -lt 3 ]; then
 	exit 1
 fi
 
-OS=$(uname)
+OS=$(uname -s)
 if [ "$OS" = "Linux" ]; then
 	accel_flag="-accel kvm"
 elif [ "$OS" = "Darwin" ]; then
@@ -49,13 +49,14 @@ else
 	err "Unsupported hardware architecture. Exiting."
 fi
 
-for img; do true; done
-
 script_name="launch.sh"
 cpu_flag="-cpu host"
 smp_flag="-smp $1"
 mem_flag="-m $2"
 and_flag="&"
+
+# img = last arg
+for img; do true; done
 
 OPTIND=3
 while getopts ":n:i:v:d:s:S:o:h" opt; do
@@ -112,6 +113,7 @@ done
 
 cat <<EOF > "$script_name"
 $qemu_cmd \\
+	-nodefaults \\
 	-drive file=$img,if=virtio $iso_flag \\
 	$cpu_flag $accel_flag \\
 	$machine_flag $bios_flag \\
