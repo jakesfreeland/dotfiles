@@ -60,7 +60,6 @@ set swapfile
 set dir=$XDG_STATE_HOME/vim/swap
 set undofile
 set undodir=$XDG_CACHE_HOME/vim/undo
-set spellfile=$XDG_DATA_HOME/vim/spell/en.utf-8.add
 
 " --- MAPPINGS ---
 let mapleader=' '
