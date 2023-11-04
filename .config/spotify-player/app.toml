@@ -2,6 +2,7 @@ client_id = "ecc118130daa4cb6ab98d2e4da101eaa"
 theme = "dracula"
 app_refresh_duration_in_ms = 32
 playback_refresh_duration_in_ms = 0
+enable_media_control = true
 default_device = "Terminal Player"
 
 [device]
