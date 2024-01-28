@@ -16,6 +16,7 @@ alias cp="cp -iv"
 alias mv="mv -iv"
 alias merge="rsync -aP"
 alias trash="gio trash"
+alias nvpn="doas openconnect -b -u jfreeland vpnconnect.niksun.com"
 
 if command -v nvim > /dev/null 2>&1; then
   alias vi="nvim"
