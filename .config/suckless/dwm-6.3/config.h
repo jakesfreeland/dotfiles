@@ -116,8 +116,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_s,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_Return, spawn,          SHCMD("tabbed -c $TERMINAL --embed") },
-	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER --profile-directory='Default'") },
-	{ MODKEY,                       XK_e,      spawn,          SHCMD("$BROWSER --profile-directory='Profile 1'") },
+	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
+	{ MODKEY,                       XK_e,      spawn,          SHCMD("google-chrome") },
 
 	{ 0, XK_Print,                             spawn,          SHCMD("$HOME/.scripts/display/screenshot.sh") },
 	{ 0, XF86XK_AudioPlay,                     spawn,          SHCMD("playerctl play-pause") },
