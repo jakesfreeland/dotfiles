@@ -50,14 +50,6 @@ end
 
 -- languages
 lsp_lang_init({
-	name = "rust",
-	cmd = { "rust-analyzer" },
-	filetypes = { "rust" },
-	root_pattern = { "Cargo.toml", "rust-project.json" },
-	auto_attach = true
-})
-
-lsp_lang_init({
 	name = "clangd",
 	cmd = { "clangd" },
 	filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
@@ -70,6 +62,22 @@ lsp_lang_init({
 		"configure.ac",
 		".git"
 	},
+	auto_attach = true
+})
+
+lsp_lang_init({
+	name = "rust",
+	cmd = { "rust-analyzer" },
+	filetypes = { "rust" },
+	root_pattern = { "Cargo.toml", "rust-project.json" },
+	auto_attach = true
+})
+
+lsp_lang_init({
+	name = "swift",
+	cmd = { "sourcekit-lsp" },
+	filetypes = { "swift", "objective-c", "objective-cpp" },
+	root_pattern = { "Package.swift" },
 	auto_attach = true
 })
 
