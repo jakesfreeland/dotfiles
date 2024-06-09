@@ -14,14 +14,10 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 # home cleanup
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
-export CCACHE_DIR="$XDG_CACHE_HOME/ccache"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export GOPATH="$XDG_DATA_HOME/go"
-export LESSHISTFILE="/dev/null"
-export LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
-export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
 export XAUTHORITY="/tmp/.Xauthority"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
