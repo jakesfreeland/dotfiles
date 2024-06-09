@@ -63,6 +63,9 @@ zle-keymap-select() {
 }
 zle -N zle-keymap-select
 
+# reverse search
+bindkey "^R" history-incremental-search-backward
+
 # zoxide (a smarter cd)
 if command -v zoxide > /dev/null 2>&1; then
   eval "$(zoxide init zsh)"
