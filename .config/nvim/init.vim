@@ -83,6 +83,16 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd VimEnter * silent normal! :startinsert :stopinsert
 
 " --- COLORS ---
+
+" Derive default colors from vim colorscheme
+if has("nvim")
+colorscheme vim
+endif
+
+" Use cterm colors instead of gui 24-bit RGB
+set notermguicolors
+
+" Set highlighting based on cterm colors
 hi TabLine cterm=none ctermfg=182 ctermbg=104
 hi TabLineSel cterm=bold ctermfg=225 ctermbg=104
 hi TabLineFill cterm=none ctermfg=none ctermbg=60
