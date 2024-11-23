@@ -82,7 +82,7 @@ lsp_lang_init({
 })
 
 -- keybinds
-lsp_lang_keys(function()
+lsp_lang_keys(function(ev)
 	vim.keymap.set({ 'n', 'i' }, "<C-h>",
 	    "<cmd>lua vim.lsp.buf.signature_help()<cr>")
 	vim.keymap.set('n', "<C-k>",
@@ -93,4 +93,6 @@ lsp_lang_keys(function()
 	    "<cmd>tab split | lua vim.lsp.buf.definition()<cr>")
 	vim.keymap.set('n', "gr",
 	    "<cmd>lua vim.lsp.buf.references()<cr>")
+	-- do not override keywordprg; see :h lsp-defaults
+	vim.keymap.del('n', 'K', { buffer = ev.buf })
 end)
