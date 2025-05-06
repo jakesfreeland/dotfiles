@@ -38,6 +38,7 @@ PS1="%B%{$fg[white]%}[%{$fg[magenta]%}%n%{$fg[white]%}@%{$fg[blue]%}%M %{$fg[yel
 autoload -Uz compinit && compinit
 zstyle ":completion:*" matcher-list "" "m:{a-zA-Z}={A-Za-z}"
 zstyle ":completion:*" menu select
+zstyle ':completion:*' completer _expand_alias _complete _ignored
 
 # allow glob operators
 setopt extended_glob
