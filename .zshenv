@@ -21,5 +21,8 @@ export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export XAUTHORITY="/tmp/.Xauthority"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
+# miscellaneous
+export CHROMIUM_USER_FLAGS="--enable-features=AcceleratedVideoDecodeLinuxGL"
+
 # path
 export PATH="$CARGO_HOME/bin:$GOPATH/bin:$PATH"
