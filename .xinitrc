@@ -16,4 +16,10 @@ nm-applet &
 $HOME/.scripts/dwm/statusbar.sh &
 
 # launch dwm
-exec dbus-launch --sh-syntax --exit-with-session dwm
+if [ -n "${DBUS_SESSION_BUS_ADDRESS}" ]; then
+    [ -d "/run/systemd/system" ] && flags=--systemd
+    dbus-update-activation-environment ${flags} DISPLAY XAUTHORITY
+    exec dwm
+else
+    exec dbus-launch --sh-syntax --exit-with-session dwm
+fi
