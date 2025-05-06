@@ -81,6 +81,14 @@ lsp_lang_init({
 	auto_attach = true
 })
 
+lsp_lang_init({
+	name = "go",
+	cmd = { "gopls" },
+	filetypes = { "go", "gomod", "gowork", "gotmpl" },
+	root_pattern = { "go.mod", "go.work" },
+	auto_attach = true
+})
+
 -- keybinds
 lsp_lang_keys(function(ev)
 	vim.keymap.set({ 'n', 'i' }, "<C-h>",
