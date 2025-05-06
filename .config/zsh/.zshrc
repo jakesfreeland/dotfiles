@@ -35,7 +35,7 @@ autoload -U colors && colors
 PS1="%B%{$fg[white]%}[%{$fg[magenta]%}%n%{$fg[white]%}@%{$fg[blue]%}%M %{$fg[yellow]%}%~%{$fg[white]%}]%{$fg[white]%}$%b "
 
 # auto completion
-autoload -Uz compinit && compinit && _comp_options+=(globdots)
+autoload -Uz compinit && compinit
 zstyle ":completion:*" matcher-list "" "m:{a-zA-Z}={A-Za-z}"
 zstyle ":completion:*" menu select
 
