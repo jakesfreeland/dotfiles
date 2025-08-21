@@ -18,11 +18,11 @@ function lsp_lang_init(lang)
 end
 
 function lsp_lang_attach(lang)
-	client = vim.lsp.get_active_clients({ name = lang.name })[1]
+	client = vim.lsp.get_clients({ name = lang.name })[1]
 	if client ~= nil then
 		vim.lsp.buf_attach_client(0, client.id)
 	else
-		vim.lsp.buf_attach_client(0, vim.lsp.start_client({
+		vim.lsp.buf_attach_client(0, vim.lsp.start({
 			name = lang.name,
 			cmd = lang.cmd,
 			root_dir = vim.fs.dirname(
@@ -33,7 +33,7 @@ end
 
 
 function lsp_lang_detach(lang_name)
-	client = vim.lsp.get_active_clients({ name = lang_name })[1]
+	client = vim.lsp.get_clients({ name = lang_name })[1]
 	if client ~= nil then
 		vim.lsp.buf_detach_client(0, client.id)
 		if next(vim.lsp.get_buffers_by_client_id(client.id)) == nil then
