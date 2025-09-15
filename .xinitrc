@@ -15,6 +15,11 @@ nm-applet &
 # dwm statusbar
 $HOME/.scripts/dwm/statusbar.sh &
 
+# Xresources
+if [ -f "$XDG_CONFIG_HOME/Xresources" ]; then
+    xrdb -merge "$XDG_CONFIG_HOME/Xresources"
+fi
+
 # launch dwm
 if [ -n "${DBUS_SESSION_BUS_ADDRESS}" ]; then
     [ -d "/run/systemd/system" ] && flags=--systemd

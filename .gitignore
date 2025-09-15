@@ -35,5 +35,6 @@
 !/.config/swayidle/
 !/.config/tmux/
 !/.config/user-dirs.dirs
+!/.config/Xresources
 !/.config/zathura/
 !/.config/zsh/
