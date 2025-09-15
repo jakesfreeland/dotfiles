@@ -43,29 +43,8 @@ zstyle ':completion:*' completer _expand_alias _complete _ignored
 # allow glob operators
 setopt extended_glob
 
-# vi mode
-bindkey -v
-bindkey "^?" backward-delete-char
-export KEYTIMEOUT=1
-
-# modal cursor
-zle-line-init() {
-    echo -ne "\e[5 q"
-}
-zle -N zle-line-init
-
-zle-keymap-select() {
-  if [ "$KEYMAP" = "vicmd" ] ||
-     [ "$1" = "block" ]; then
-    echo -ne "\e[2 q"
-  else
-    echo -ne "\e[5 q"
-  fi
-}
-zle -N zle-keymap-select
-
-# reverse search
-bindkey "^R" history-incremental-search-backward
+# emacs mode
+bindkey -e
 
 # zoxide (a smarter cd)
 if command -v zoxide > /dev/null 2>&1; then
