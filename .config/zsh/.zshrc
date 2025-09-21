@@ -16,6 +16,7 @@ alias cp="cp -iv"
 alias mv="mv -iv"
 alias merge="rsync -aP"
 alias trash="gio trash"
+alias nvpn="systemctl restart openvpn-client@netflix.service"
 
 if command -v nvim > /dev/null 2>&1; then
   alias vi="nvim"
