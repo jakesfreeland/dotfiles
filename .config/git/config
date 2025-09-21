@@ -1,7 +1,7 @@
 [user]
 	name = Jake Freeland
 	email = jfree@FreeBSD.org
-[credential "https://github.com"]
+[credential]
 	helper = !gh auth git-credential
 [merge]
 	tool = vimdiff
