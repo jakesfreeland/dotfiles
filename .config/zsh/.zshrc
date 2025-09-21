@@ -18,6 +18,10 @@ alias merge="rsync -aP"
 alias trash="gio trash"
 alias nvpn="systemctl restart openvpn-client@netflix.service"
 
+if command -v xdg-open > /dev/null 2>&1; then
+  alias open="xdg-open"
+fi
+
 if command -v nvim > /dev/null 2>&1; then
   alias vi="nvim"
 fi
