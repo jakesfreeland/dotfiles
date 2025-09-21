@@ -16,8 +16,6 @@
 !/.config/alacritty/
 !/.config/dunst/
 !/.config/emacs/
-/.config/emacs/*
-!/.config/emacs/init.el
 !/.config/freebsd/
 !/.config/git/
 !/.config/gtk-3.0/
