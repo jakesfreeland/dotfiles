@@ -1,66 +1,90 @@
-;; emacs initialization file
+;;;  -*- lexical-binding: t; -*-
+;;; init.el -- Emacs startup file
+;;;
 
-;; appearance
-(set-default 'truncate-lines t)
-(set-face-attribute 'default nil :font "Source Code Pro Semibold" :height 160)
+(defun load-these (files)
+  (mapcar
+   (lambda (file)
+     (load-file (locate-user-emacs-file file)))
+   files))
 
-;; options
-(setq inhibit-startup-message t)
-(setq completion-ignore-case t)
-(setq read-buffer-completion-ignore-case t)
+(load-these '("setup-setup.el"
 
-;; backup and undo
-(setq
- backup-by-copying t
- backup-directory-alist '(("." . "~/.cache/emacs/backup/"))
- undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo"))
- delete-old-versions t
- kept-new-versions 4
- kept-old-versions 2
- version-control t)
+	      ;; * Packages
+	      "package-setup.el"
+	      ;; ^ (load this first so that the remaining *-setup
+	      ;; files can declare their dependencies with
+	      ;; `use-package')
 
-;; emacs modes
-(global-display-line-numbers-mode 1)
-(scroll-bar-mode 0)
-(size-indication-mode 0)
-(column-number-mode 1)
-(electric-pair-mode 1)
-(global-auto-revert-mode 1)
-(recentf-mode 1)
-(savehist-mode 1)
-(show-paren-mode 1)
+	      ;; * Custom functions
+	      "functions-setup.el"
 
-;; plugin modes
-(vertico-mode 1)
-(which-key-mode 1)
+	      ;; * Keybinds
+	      "keys-setup.el"
 
-;; --- PACKAGING ---
-(require 'package)
-(add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/"))
-(package-initialize)
-(unless package-archive-contents
-  (package-refresh-contents))
+	      ;; * Appearance
+	      "appearance-setup.el"
+	      "mode-line-setup.el"
 
-;; --- PACKAGES ---
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages '(lsp-ui lsp-mode evil smartparens which-key dracula-theme)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+	      ;; * Builtins
+	      "builtin-modes-setup.el"
+	      "builtin-options-setup.el"
+	      "path-setup.el"
+	      "tabs-setup.el"
+	      "dired-setup.el"
 
-;; dracula-theme
-(load-theme 'dracula 1)
+	      ;; * Completion
+	      "completion-setup.el"
 
-;; lsp-mode and lsp-ui
-(require 'lsp-mode)
-(add-hook 'c-mode-hook #'lsp)
-(add-hook 'rust-mode-hook #'lsp)
+	      ;; * Email
+	      ;; "mail-setup.el"
 
+	      ;; * Terminal
+	      "terminal-setup.el"
+
+	      ;; * Shell
+	      ;; "shell-setup.el"
+
+	      ;; * Tramp
+	      "tramp-setup.el"
+
+	      ;; * Languages
+	      ;; * * natural
+	      ;; "plaintext-setup.el"
+	      ;; "notes-setup.el"
+	      ;; "poem-setup.el"
+
+	      ;; * * markup
+	      ;; "markdown-setup.el"
+	      ;; "org-setup.el"
+	      ;; "lilypond-setup.el"
+
+	      ;; * * programming
+	      ;; "programming-setup.el"
+	      "c-family-setup.el"
+	      ;; "d-setup.el"
+	      "elisp-setup.el"
+	      ;; "haskell-setup.el"
+	      "html-setup.el"
+	      "js-setup.el"
+	      ;; "lisp-setup.el"
+	      "lsp-setup.el"
+	      ;; "ocaml-setup.el"
+	      ;; "python-setup.el"
+
+	      ;; * Documents
+	      ;; "pdf-setup.el"
+
+	      ;; * Diffs
+	      "diff-setup.el"
+
+	      ;; * Version control
+	      ;; "magit-setup.el"
+
+	      ;; * AI assistance
+	      "ai-setup.el"))
+
+;; M-x customize
+(setq custom-file (locate-user-emacs-file "custom-vars.el"))
+(load custom-file 'noerror 'nomessage)
+(put 'narrow-to-region 'disabled nil)

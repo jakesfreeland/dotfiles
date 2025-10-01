@@ -1,0 +1,11 @@
+*
+
+!.gitignore
+
+!README.md
+!LICENSE
+
+!init.el
+!*-setup.el
+!*-setup-*.el
+
