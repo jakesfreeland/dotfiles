@@ -59,3 +59,7 @@ fi
 
 # plugins
 source ${prefix}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Emacs vterm support
+vterm_conf="${XDG_CONFIG_HOME}/emacs/elpa/vterm/etc/emacs-vterm-zsh.sh"
+[ -f "${vterm_conf}" ] && source "${vterm_conf}"
