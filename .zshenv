@@ -23,6 +23,7 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # miscellaneous
 export CHROMIUM_USER_FLAGS="--enable-features=AcceleratedVideoDecodeLinuxGL"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/openssh_agent"
 
 # path
 export PATH="$HOME/.local/bin:$CARGO_HOME/bin:$GOPATH/bin:$PATH"
