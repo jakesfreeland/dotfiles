@@ -25,4 +25,4 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export CHROMIUM_USER_FLAGS="--enable-features=AcceleratedVideoDecodeLinuxGL"
 
 # path
-export PATH="$CARGO_HOME/bin:$GOPATH/bin:$PATH"
+export PATH="$HOME/.local/bin:$CARGO_HOME/bin:$GOPATH/bin:$PATH"
