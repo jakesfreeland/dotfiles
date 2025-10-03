@@ -27,7 +27,7 @@
 
 ;; Use the wonderful "Aporetic" font
 (when-mac (set-face-attribute 'default nil :family "Aporetic Sans Mono"))
-(when-linux (set-face-attribute 'default nil :family "Source Code Pro"))
+(when-linux (set-face-attribute 'default nil :family "Source Code Pro" :weight 'semibold))
 
 ;; Truncate long lines (wrapping causes too much visual interference)
 (set-default 'truncate-lines t)
