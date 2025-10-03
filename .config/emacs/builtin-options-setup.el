@@ -22,6 +22,7 @@
  kept-new-versions 6
  kept-old-versions 2
  make-pointer-invisible t
+ mouse-drag-copy-region t
  recentf-max-saved-items 500
  ring-bell-function 'ignore
  sentence-end-double-space t
