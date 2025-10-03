@@ -11,6 +11,12 @@
   `(when (eq system-type 'gnu/linux)
      ,then))
 
+;; Constants:
+
+(defconst
+  metadata-dir
+  (substitute-in-file-name "$XDG_CACHE_HOME/emacs"))
+
 ;; Macros:
 
 (defmacro => (&rest body)

@@ -2,10 +2,6 @@
 ;;; builtin-options-setup.el -- Settings for builtin options
 ;;;
 
-(defconst
-  metadata-dir
-  (substitute-in-file-name "$XDG_CACHE_HOME/emacs"))
-
 (setq
  auto-save-file-name-transforms `((".*" ,metadata-dir t))
  backup-by-copying t
@@ -32,7 +28,6 @@
  set-mark-command-repeat-pop t
  scroll-preserve-screen-position t
  tab-bar-show 1
- undo-tree-history-directory-alist `(("." . ,metadata-dir))
  use-dialog-box nil
  version-control t
  window-combination-resize t)

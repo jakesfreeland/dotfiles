@@ -46,7 +46,9 @@
   :hook ((after-init . spacious-padding-mode)
         (server-after-make-frame . spacious-padding-mode)))
 
-(use-package undo-tree)
+(use-package undo-tree
+  :config
+  (setq undo-tree-history-directory-alist `(("." . ,metadata-dir))))
 
 (use-package vertico
   :config
