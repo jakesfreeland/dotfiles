@@ -17,7 +17,7 @@
 	      ;; `use-package')
 
 	      ;; * Custom functions
-	      "functions-setup.el"
+	      ;; "functions-setup.el"
 
 	      ;; * Keybinds
 	      "keys-setup.el"
@@ -29,12 +29,12 @@
 	      ;; * Builtins
 	      "builtin-modes-setup.el"
 	      "builtin-options-setup.el"
-	      "path-setup.el"
+	      ;; "path-setup.el"
 	      "tabs-setup.el"
 	      "dired-setup.el"
 
 	      ;; * Completion
-	      "completion-setup.el"
+	      ;; "completion-setup.el"
 
 	      ;; * Email
 	      ;; "mail-setup.el"
@@ -64,10 +64,10 @@
 	      ;; "programming-setup.el"
 	      "c-family-setup.el"
 	      ;; "d-setup.el"
-	      "elisp-setup.el"
+	      ;; "elisp-setup.el"
 	      ;; "haskell-setup.el"
-	      "html-setup.el"
-	      "js-setup.el"
+	      ;; "html-setup.el"
+	      ;; "js-setup.el"
 	      ;; "lisp-setup.el"
 	      "lsp-setup.el"
 	      ;; "ocaml-setup.el"
