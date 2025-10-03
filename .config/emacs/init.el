@@ -60,6 +60,7 @@
 	      ;; "lilypond-setup.el"
 
 	      ;; * * programming
+	      "tree-sitter-setup.el"
 	      ;; "programming-setup.el"
 	      "c-family-setup.el"
 	      ;; "d-setup.el"
