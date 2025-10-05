@@ -23,25 +23,15 @@
 home directory path with a `~/'."
   (string-replace (expand-file-name "~/") "~/" path))
 
-(defmacro maybe-in-project (body)
-  "If we're in a project, set the current working directory to the root
-directory of that project."
-  `(let ((proj (project-current nil)))
-     (let ((default-directory (if proj
-				  (project-root proj)
-				default-directory)))
-       ,body)))
-
 (defun cwd ()
   "Get the current working directory. Implemented as `pwd' with the
-returned string cleaned up, and with support for `project.el'."
+returned string cleaned up."
   (let ((inhibit-message t))
-    (maybe-in-project
-     (mapconcat #'identity
-		(cdr (split-string
-		      (collapse-tilde (pwd))
-		      " "))
-		" "))))
+    (mapconcat #'identity
+	       (cdr (split-string
+		     (collapse-tilde (pwd))
+		     " "))
+	       " ")))
 
 (defun buffer-names-matching-regexp (regexp)
   "Return a list of buffers whose names match `regexp'."
@@ -111,6 +101,6 @@ window, instead of popping to another window"
 			 #'display-buffer-use-least-recent-window))))))
 
 (keybinds
- "C-z ."   vterm-session/create-in-current-directory
+ "C-z ." vterm-session/create-in-current-directory
  "C-z ," vterm-session/create-in-chosen-directory
  "C-z /" vterm-session/select)

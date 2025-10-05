@@ -12,6 +12,7 @@
  dired-kill-when-opening-new-dired-buffer t
  display-time-day-and-date nil
  display-time-default-load-average nil
+ enable-recursive-minibuffers t
  eshell-hitory-size 1024
  gc-cons-threshold 20000000
  global-auto-revert-non-file-buffers t
@@ -22,16 +23,16 @@
  kept-new-versions 6
  kept-old-versions 2
  make-pointer-invisible t
+ max-lisp-eval-depth 2000
  mouse-drag-copy-region t
  recentf-max-saved-items 500
  ring-bell-function 'ignore
+ scroll-preserve-screen-position t
  sentence-end-double-space t
  set-mark-command-repeat-pop t
- scroll-preserve-screen-position t
  tab-bar-show 1
  use-dialog-box nil
- version-control t
- window-combination-resize t)
+ version-control t)
 
 (when-mac
  (setq

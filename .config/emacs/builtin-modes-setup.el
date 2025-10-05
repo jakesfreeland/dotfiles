@@ -12,8 +12,8 @@
 (column-number-mode 1)
 (global-auto-revert-mode 0)
 (recentf-mode 1)
+(repeat-mode 1)
 (savehist-mode 1)
 (show-paren-mode 1)
 
 (global-goto-address-mode 1)
-(global-undo-tree-mode 1)

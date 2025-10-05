@@ -4,18 +4,24 @@
 
 (when-mac
  (progn
+   (setq user-mail-address personal/email-address)
+
    (use-package gnus
      :defer t
      :config
      (setq
       gnus-select-method '(nnimap "imap.gmail.com")
+      gnus-search-use-parsed-queries t
       gnus-extra-headers '(To Cc Keywords Gcc Newsgroups X-GM-LABELS)
       gnus-always-read-dribble-file t
       gnus-summary-line-format "%U%R%z%I%(%[ %-4,30f (%L) %]%) %s\n"
       gnus-sum-thread-tree-indent "    "
       gnus-sum-opening-bracket-adopted "{"
       gnus-sum-closing-bracket-adopted "}"
-      gnus-widen-article-window t)
+      gnus-thread-sort-functions '(gnus-thread-sort-by-number
+				   gnus-thread-sort-by-most-recent-date)
+      gnus-widen-article-window t
+      message-kill-buffer-on-exit t)
      :bind (("C-z m" . gnus)))
 
    (use-package smtpmail
@@ -26,7 +32,17 @@
 	   message-send-mail-function #'smtpmail-send-it)
 
      (add-hook 'message-mode-hook
-	       (=> (setq smtpmail-smtp-service 587))))))
+	       (=> (setq smtpmail-smtp-service 587))))
+
+   (use-package ebdb
+     :after gnus
+     :config
+     (setq ebdb-complete-mail 'tab
+	   ebdb-completion-display-record t
+	   ebdb-mua-auto-update-p nil
+	   ebdb-mua-pop-up nil)
+     (ebdb-insinuate-gnus)
+     (ebdb-complete-enable))))
 
 (when-linux
  (progn

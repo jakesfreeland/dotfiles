@@ -18,9 +18,6 @@
 ;; Corfu: frontend for auto completion with various backends
 (use-package corfu
   :custom
-  (corfu-auto t)
-  (corfu-auto-delay 0.1)
-  (corfu-auto-prefix 3)
   (corfu-cycle t)
   (corfu-echo-delay 0.25)
   (corfu-separator ?\s)

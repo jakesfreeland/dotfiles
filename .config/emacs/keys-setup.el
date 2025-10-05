@@ -11,6 +11,9 @@
  "C-v" View-scroll-half-page-forward
  "M-v" View-scroll-half-page-backward
 
+ "S-C-i" enlarge-window
+ "S-C-d" shrink-window
+
  ; Overwrite useless `list-directory' binding to call `dired' instead
  "C-x C-d" dired
 
@@ -51,6 +54,7 @@
  "C-z o" sp-change-enclosing
  "C-z p" package-list-packages
  "C-z q" logos-focus-mode
+ "C-z r" windresize
  "C-z s" consult-line
  "C-z t" ef-themes-select
  "C-z C-t" ef-themes-toggle

@@ -12,29 +12,46 @@
 
 	      ;; * Packages
 	      "package-setup.el"
-	      ;; ^ (load this first so that the remaining *-setup
-	      ;; files can declare their dependencies with
-	      ;; `use-package')
+	      ;; ^ load this early so that later files
+	      ;;   are set up to declare dependencies.
 
-	      ;; * Custom functions
-	      ;; "functions-setup.el"
+	      ;; * Basics
+	      ;; "basics-setup.el"
 
-	      ;; * Keybinds
-	      "keys-setup.el"
+	      ;; * Navigation
+	      ;; "navigation-setup.el"
+
+	      ;; * Editing
+	      "editing-setup.el"
+
+	      ;; * Copying and Pasting
+	      ;;  (Killing and Yanking)
+	      "copy-paste-setup.el"
 
 	      ;; * Appearance
 	      "appearance-setup.el"
 	      "mode-line-setup.el"
 
+	      ;; * Visuals
+	      ;; "visuals-setup.el"
+
 	      ;; * Builtins
 	      "builtin-modes-setup.el"
 	      "builtin-options-setup.el"
 	      ;; "path-setup.el"
-	      "tabs-setup.el"
 	      "dired-setup.el"
 
+	      ;; * Buffers
+	      ;; "buffers-setup.el"
+
+	      ;; * Windows
+	      "windows-setup.el"
+
+	      ;; * Tabs
+	      "tabs-setup.el"
+
 	      ;; * Completion
-	      ;; "completion-setup.el"
+	      "completion-setup.el"
 
 	      ;; * Email
 	      ;; "mail-setup.el"
@@ -51,6 +68,7 @@
 	      ;; * Languages
 	      ;; * * natural
 	      ;; "plaintext-setup.el"
+	      ;; "writing-setup.el"
 	      ;; "notes-setup.el"
 	      ;; "poem-setup.el"
 
@@ -59,9 +77,13 @@
 	      ;; "org-setup.el"
 	      ;; "lilypond-setup.el"
 
+	      ;; * * plaintext data
+	      ;; "csv-setup.el"
+
 	      ;; * * programming
-	      "tree-sitter-setup.el"
 	      ;; "programming-setup.el"
+	      "documentation-setup.el"
+	      "tree-sitter-setup.el"
 	      "c-family-setup.el"
 	      ;; "d-setup.el"
 	      ;; "elisp-setup.el"
@@ -73,17 +95,35 @@
 	      ;; "ocaml-setup.el"
 	      ;; "python-setup.el"
 
+	      ;; * AI assistance
+	      "ai-setup.el"
+
+	      ;; * Math
+	      ;; "math-setup.el"
+
 	      ;; * Documents
 	      ;; "pdf-setup.el"
+
+	      ;; * Encryption / Decryption
+	      ;; "crypto-setup.el"
 
 	      ;; * Diffs
 	      "diff-setup.el"
 
 	      ;; * Version control
-	      ;; "magit-setup.el"
+	      "magit-setup.el"
 
-	      ;; * AI assistance
-	      "ai-setup.el"))
+	      ;; * Snippets
+	      ;; "snippets-setup.el"
+
+	      ;; * Vertico
+	      "vertico-setup.el"
+
+	      ;; * Consult
+	      "consult-setup.el"
+
+	      ;; * Activities
+	      "activities-setup.el"))
 
 ;; M-x customize
 (setq custom-file (locate-user-emacs-file "custom-vars.el"))

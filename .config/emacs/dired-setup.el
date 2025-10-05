@@ -5,6 +5,9 @@
 (use-package dired
   :ensure nil
   :config
+  ;; Overwrite useless `list-directory' binding to call `dired' instead
+  (keybind "C-x C-d" dired)
+
   (defun dired-sysopen-file-at-point ()
     (interactive)
     (async-shell-command (concat "open " (dired-file-name-at-point)) "open (from dired)"))
@@ -12,6 +15,11 @@
   (add-hook 'dired-mode-hook
 	    (=> (keymap-set dired-mode-map (kbd ";")
 			    'dired-sysopen-file-at-point))))
+
+(use-package dired-hide-dotfiles
+  :hook (dired-after-readin . dired-hide-dotfiles--hide)
+  :bind (:map dired-mode-map
+	      ("," . dired-hide-dotfiles-mode)))
 
 (setq dired-listing-switches "-alh")
 
