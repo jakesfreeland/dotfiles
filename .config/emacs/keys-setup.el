@@ -8,12 +8,6 @@
  ; Better buffer menu
  "C-x C-b" ibuffer-other-window
 
- "C-v" View-scroll-half-page-forward
- "M-v" View-scroll-half-page-backward
-
- "S-C-i" enlarge-window
- "S-C-d" shrink-window
-
  ; Overwrite useless `list-directory' binding to call `dired' instead
  "C-x C-d" dired
 

@@ -2,8 +2,6 @@
 ;;; appearance-setup.el -- Configurations for how Emacs looks
 ;;;
 
-(use-package view)
-
 ;; Use the wonderful ef-themes
 (use-package ef-themes
   :config
@@ -30,7 +28,7 @@
 
 ;; Bigger font
 (when-mac (set-face-attribute 'default nil :height 200))
-(when-linux (set-face-attribute 'default nil :height 110))
+(when-linux (set-face-attribute 'default nil :height 130))
 
 ;; Easy command to change font size
 (defun set-font-height-in-pts (pts)

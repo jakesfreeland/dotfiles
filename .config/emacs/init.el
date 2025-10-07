@@ -30,7 +30,6 @@
 
 	      ;; * Appearance
 	      "appearance-setup.el"
-	      "mode-line-setup.el"
 
 	      ;; * Visuals
 	      ;; "visuals-setup.el"
@@ -121,6 +120,8 @@
 
 	      ;; * Consult
 	      "consult-setup.el"
+
+	      "mode-line-setup.el"
 
 	      ;; * Activities
 	      "activities-setup.el"))

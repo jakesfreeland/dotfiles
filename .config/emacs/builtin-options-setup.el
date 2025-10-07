@@ -30,6 +30,7 @@
  scroll-preserve-screen-position t
  sentence-end-double-space t
  set-mark-command-repeat-pop t
+ split-width-threshold nil
  tab-bar-show 1
  use-dialog-box nil
  version-control t)
