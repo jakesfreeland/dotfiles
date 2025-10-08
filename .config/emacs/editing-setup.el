@@ -26,9 +26,8 @@
 ;;   (add-to-list 'substitute-post-replace-hook
 ;; 	       'substitute-report-operation))
 
-(use-package dtrt-indent
-  :config
-  (dtrt-indent-global-mode 1))
+;; Auto detect and set intendation settings per file
+(use-package dtrt-indent)
 
 (use-package undo-tree
   :config
