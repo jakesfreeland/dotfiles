@@ -2,17 +2,18 @@
 ;;; lsp-setup.el -- Setup for Language Server Protocol integration
 ;;;
 
-(use-package flycheck)
-
-(use-package lsp-mode
+(use-package eglot
+  :after orderless
   :init
-  (setq lsp-keymap-prefix "C-S-l")
-  :hook ((c-mode . lsp-deferred)
-         (rust-mode . lsp-deferred)
-         (lsp-mode . lsp-enable-which-key-integration))
-  :commands (lsp lsp-deferred))
+  (setq eglot-autoshutdown t
+	completion-category-overrides '((eglot (styles orderless))
+					(eglot-capf (styles orderless))))
+  :hook
+  ((c-mode . eglot-ensure)
+   (c++-mode . eglot-ensure)
+   (rust-mode . eglot-ensure)))
 
-(use-package lsp-ui
-  :commands lsp-ui-mode
-  :config
-  (setq lsp-ui-sideline-show-diagnostics t))
+;; (use-package eglot-booster
+;;   :after eglot
+;;   :config
+;;   (eglot-booster-mode))
