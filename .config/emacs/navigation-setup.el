@@ -10,7 +10,7 @@
  "M-p" previous-line)
 
 (use-package god-mode
-  :init
+  :config
   (setq god-mode-enable-function-key-translation nil)
   (keybind "<escape>" #'god-mode)
   (add-to-list 'god-exempt-major-modes 'vterm-mode))
