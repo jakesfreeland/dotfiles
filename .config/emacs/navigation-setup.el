@@ -5,17 +5,15 @@
 (use-package expand-region
   :bind ("C-=" . er/expand-region))
 
-(defun scroll-up-one ()
-  (interactive)
-  (scroll-up-command 1))
-
-(defun scroll-down-one ()
-  (interactive)
-  (scroll-down-command 1))
-
 (keybinds
- "M-n" scroll-up-one
- "M-p" scroll-down-one)
+ "M-n" next-line
+ "M-p" previous-line)
+
+(use-package god-mode
+  :init
+  (setq god-mode-enable-function-key-translation nil)
+  (keybind "<escape>" #'god-mode)
+  (add-to-list 'god-exempt-major-modes 'vterm-mode))
 
 (use-package view
   :config

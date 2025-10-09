@@ -19,7 +19,7 @@
 	      ;; "basics-setup.el"
 
 	      ;; * Navigation
-	      ;; "navigation-setup.el"
+	      "navigation-setup.el"
 
 	      ;; * Editing
 	      "editing-setup.el"
