@@ -91,6 +91,7 @@
 	      ;; "js-setup.el"
 	      ;; "lisp-setup.el"
 	      "lsp-setup.el"
+	      "debug-setup.el"
 	      ;; "ocaml-setup.el"
 	      ;; "python-setup.el"
 
