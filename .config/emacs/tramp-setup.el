@@ -8,7 +8,8 @@
   (setq
    remote-file-name-inhibit-cache nil
    vc-handled-backends '(Git)
-   remote-file-name-inhibit-locks t))
+   remote-file-name-inhibit-locks t
+   enable-remote-dir-locals t))
 
 ;; (add-to-list 'tramp-default-proxies-alist
 ;;              '("c.*\..*\.dev" nil "/podman:nflx-dev:%h:"))
