@@ -31,7 +31,8 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
 # history
-HISTFILE="$HOME/.cache/zsh/history"
+[ -f "${XDG_CACHE_HOME}/zsh" ] || mkdir -p "${XDG_CACHE_HOME}/zsh"
+HISTFILE="${XDG_CACHE_HOME}/zsh/history"
 HISTSIZE=10000
 SAVEHIST=10000
 
