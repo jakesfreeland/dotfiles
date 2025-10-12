@@ -26,9 +26,6 @@ if command -v nvim > /dev/null 2>&1; then
   alias vi="nvim"
 fi
 
-# keybinds
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
 
 # history
 [ -f "${XDG_CACHE_HOME}/zsh" ] || mkdir -p "${XDG_CACHE_HOME}/zsh"
