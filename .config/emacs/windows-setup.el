@@ -12,11 +12,16 @@
   (split-window-right)
   (other-window 1))
 
+(defun switch-to-previous-window ()
+  (interactive)
+  (select-window (or (get-mru-window t t t)
+                     (user-error "No previous window found"))))
+
 (use-package emacs
   :config
-  (keybinds "M-<tab>" other-window
-            "C-x 2" split-window-below-and-focus
+  (keybinds "C-x 2" split-window-below-and-focus
 	    "C-x 3" split-window-right-and-focus
+	    "M-o" switch-to-previous-window
 	    "S-C-i" enlarge-window
 	    "S-C-d" shrink-window))
 
