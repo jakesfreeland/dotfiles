@@ -9,6 +9,11 @@
   (global-auto-revert-mode 1)
   (auto-revert-mode 1))
 
+(use-package claude-code
+  :vc (:url "https://github.com/stevemolitor/claude-code.el" :rev :newest)
+  :config
+  (keybind "C-c c" claude-code-transient))
+
 ;; (use-package copilot
 ;;   :config
 ;;   (setq copilot-max-char 10000000
