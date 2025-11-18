@@ -9,10 +9,10 @@
   (global-auto-revert-mode 1)
   (auto-revert-mode 1))
 
-(use-package claude-code
-  :vc (:url "https://github.com/stevemolitor/claude-code.el" :rev :newest)
+(use-package claudemacs
+  :vc (:url "https://github.com/cpoile/claudemacs" :rev :newest)
   :config
-  (keybind "C-c c" claude-code-transient))
+  (keybind "C-c c" claudemacs-transient-menu))
 
 ;; (use-package copilot
 ;;   :config
