@@ -26,7 +26,8 @@
  make-pointer-invisible t
  max-lisp-eval-depth 2000
  mouse-drag-copy-region t
- recentf-max-saved-items 500
+ recentf-max-menu-items 25
+ recentf-max-saved-items 25
  ring-bell-function 'ignore
  scroll-preserve-screen-position t
  sentence-end-double-space t
