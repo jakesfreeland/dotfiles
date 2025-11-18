@@ -13,7 +13,8 @@
   :config
   (setq god-mode-enable-function-key-translation nil)
   (keybind "<escape>" #'god-mode)
-  (add-to-list 'god-exempt-major-modes 'vterm-mode))
+  (add-to-list 'god-exempt-major-modes 'vterm-mode)
+  (add-to-list 'god-exempt-major-modes 'eat-semi-char-mode))
 
 (use-package view
   :config
