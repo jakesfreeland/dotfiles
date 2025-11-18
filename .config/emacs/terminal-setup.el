@@ -105,7 +105,8 @@ window, instead of popping to another window"
 (use-package eat
   :config
   (define-key eat-semi-char-mode-map (kbd "C-z") nil)
-  (define-key eat-semi-char-mode-map (kbd "C-z C-z") #'eat-self-input))
+  (define-key eat-semi-char-mode-map (kbd "C-z C-z") #'eat-self-input)
+  (setq eat-kill-buffer-on-exit t))
 
 (defun eat-session/go (dir &optional force-new)
   "Go to a `eat' session for the directory DIR. If a session already
@@ -113,9 +114,9 @@ exists for DIR, jump to it; else, create a new eat instance in DIR.
 
 If FORCE-NEW is `t', then a new session will be created unconditionally
 (even if one already exists for DIR)."
-  (let ((eat-buf-name (concat "*eat* " dir)))
-    (if (and (get-buffer eat-buf-name) (not force-new))
-	(pop-to-buffer eat-buf-name)
+  (let ((eat-buffer-name (concat "*eat* " dir)))
+    (if (and (get-buffer eat-buffer-name) (not force-new))
+	(pop-to-buffer eat-buffer-name)
       (let ((default-directory dir))
 	(eat)))))
 
@@ -148,7 +149,12 @@ unconditionally."
     (if dir
         (eat-session/go dir arg))))
 
+(defun eat-session/create-in-home-directory (arg)
+  (interactive "P")
+  (eat-session/go "~/" arg))
+
 (keybinds
- "C-z ." vterm-session/create-in-current-directory
- "C-z ," vterm-session/create-in-chosen-directory
- "C-z /" vterm-session/select)
+ "C-z ." eat-session/create-in-current-directory
+ "C-z ," eat-session/create-in-chosen-directory
+ "C-z ~" eat-session/create-in-home-directory
+ "C-z /" eat-session/select)
