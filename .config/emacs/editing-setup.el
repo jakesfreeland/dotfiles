@@ -33,3 +33,7 @@
   :config
   (setq undo-tree-history-directory-alist `(("." . ,metadata-dir)))
   (global-undo-tree-mode 1))
+
+(keybinds
+ "C-z <tab>" 'indent-tabs-mode
+ "C-z C-<tab>" 'dtrt-indent-global-mode)
