@@ -14,6 +14,11 @@
    (c++-mode . eglot-ensure)
    (rust-mode . eglot-ensure)))
 
+(add-hook 'eglot-managed-mode-hook
+          (lambda ()
+            (add-to-list 'eglot-ignored-server-capabilities
+                         :documentOnTypeFormattingProvider)))
+
 ;; (use-package eglot-booster
 ;;   :after eglot
 ;;   :config
