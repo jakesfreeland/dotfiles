@@ -103,6 +103,7 @@ window, instead of popping to another window"
 ; ---
 
 (use-package eat
+  :vc (:url "https://codeberg.org/akib/emacs-eat" :rev :newest)
   :config
   (define-key eat-semi-char-mode-map (kbd "C-z") nil)
   (define-key eat-semi-char-mode-map (kbd "C-z C-z") #'eat-self-input)
