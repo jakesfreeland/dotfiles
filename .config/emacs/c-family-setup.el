@@ -4,4 +4,5 @@
 
 (add-hook 'c-mode-common-hook
 	  (=> (c-set-style "bsd")
-	      (display-line-numbers-mode)))
+	      (display-line-numbers-mode)
+	      (indent-tabs-mode 1)))
