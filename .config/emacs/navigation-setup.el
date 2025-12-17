@@ -5,9 +5,17 @@
 (use-package expand-region
   :bind ("C-=" . er/expand-region))
 
+(defun backward-whitespace (arg)
+  (interactive "^p")
+  (forward-whitespace (- arg)))
+
 (keybinds
  "M-n" next-line
- "M-p" previous-line)
+ "M-p" previous-line
+ "M-f" forward-whitespace
+ "M-b" backward-whitespace
+ "M-C-f" forward-word
+ "M-C-b" backward-word)
 
 (use-package god-mode
   :config
