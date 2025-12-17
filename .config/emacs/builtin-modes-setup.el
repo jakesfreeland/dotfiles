@@ -18,4 +18,4 @@
 (show-paren-mode 1)
 
 (global-goto-address-mode 1)
-(indent-tabs-mode 0)
+(customize-set-variable 'indent-tabs-mode nil)
