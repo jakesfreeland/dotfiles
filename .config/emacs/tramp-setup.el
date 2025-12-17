@@ -15,7 +15,8 @@
    remote-file-name-inhibit-auto-save-visited t
    tramp-use-connection-share nil
    enable-remote-dir-locals t
-   tramp-histfile-override nil))
+   tramp-histfile-override nil
+   tramp-use-connection-share nil))
 
 (setq tramp-default-method "rsync")
 
