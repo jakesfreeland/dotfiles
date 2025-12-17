@@ -10,7 +10,8 @@
 (tooltip-mode 0)
 
 (column-number-mode 1)
-(electric-indent-mode 0)
+(electric-indent-mode 1)
+(electric-pair-mode 1)
 (global-auto-revert-mode 0)
 (recentf-mode 1)
 (repeat-mode 1)
