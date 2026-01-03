@@ -15,7 +15,6 @@
  enable-recursive-minibuffers t
  eshell-hitory-size 1024
  gc-cons-threshold 20000000
- global-auto-revert-non-file-buffers t
  grep-use-headings t
  help-window-select t
  inhibit-startup-screen t
