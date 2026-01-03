@@ -4,10 +4,7 @@
 
 (use-package aider
   :config
-  (global-set-key (kbd "C-c a") 'aider-transient-menu)
-  (aider-magit-setup-transients)
-  (global-auto-revert-mode 1)
-  (auto-revert-mode 1))
+  (keybind "C-c a" aider-transient-menu))
 
 (use-package claudemacs
   :vc (:url "https://github.com/cpoile/claudemacs" :rev :newest)
