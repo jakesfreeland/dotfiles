@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# screen lock
+xss-lock slock &
+
 # restore wallpaper
 feh --bg-scale --no-fehbg $HOME/Media/Pictures/Wallpapers/freebsd-ascii-3840x2160.png &
 
